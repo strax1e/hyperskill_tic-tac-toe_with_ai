@@ -1,13 +1,13 @@
 package tictactoe;
 
-import org.springframework.stereotype.Component;
-import tictactoe.exception.BadParametersException;
-import tictactoe.exception.GameException;
+import org.springframework.stereotype.Service;
+import tictactoe.exceptions.BadParametersException;
+import tictactoe.exceptions.GameException;
 import tictactoe.io.IOHandler;
 
 import java.util.regex.Pattern;
 
-@Component
+@Service
 public final class GameLauncher implements Launcher {
 
     private static final Pattern PATTERN_CORRECT_COMMAND =

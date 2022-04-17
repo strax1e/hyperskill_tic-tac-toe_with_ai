@@ -1,9 +1,9 @@
 package tictactoe.player;
 
-import tictactoe.exception.CoordinateIsBusyException;
-import tictactoe.exception.CoordinateIsNotInIntervalException;
-import tictactoe.exception.GameException;
-import tictactoe.exception.WordsInsteadOfCoordinatesException;
+import tictactoe.exceptions.CoordinateIsBusyException;
+import tictactoe.exceptions.CoordinateIsNotInIntervalException;
+import tictactoe.exceptions.GameException;
+import tictactoe.exceptions.WordsInsteadOfCoordinatesException;
 import tictactoe.grid.GridCoordinate;
 import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;

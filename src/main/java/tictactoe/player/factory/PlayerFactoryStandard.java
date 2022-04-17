@@ -1,7 +1,7 @@
 package tictactoe.player.factory;
 
 import org.springframework.stereotype.Component;
-import tictactoe.exception.UnknownPlayerTypeException;
+import tictactoe.exceptions.UnknownPlayerTypeException;
 import tictactoe.grid.GridSymbol;
 import tictactoe.io.IOHandler;
 import tictactoe.grid.GameGrid;

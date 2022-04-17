@@ -1,4 +1,4 @@
-package tictactoe.exception;
+package tictactoe.exceptions;
 
 
 import lombok.NoArgsConstructor;
