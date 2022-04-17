@@ -4,9 +4,9 @@ import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;
 import tictactoe.player.Player;
 
-public abstract class Bot extends Player {
+public abstract sealed class Bot extends Player permits HardBot, MediumBot, EasyBot {
 
-    public Bot(GameGrid grid, GridSymbol symbol) {
+    protected Bot(GameGrid grid, GridSymbol symbol) {
         super(grid, symbol);
     }
 }

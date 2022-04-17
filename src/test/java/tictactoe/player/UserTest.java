@@ -46,7 +46,7 @@ class UserTest {
 
         user.move();
 
-        verify(io, atLeastOnce()).send(eq("This cell is occupied! Choose another one!"));
+        verify(io, atLeastOnce()).send("This cell is occupied! Choose another one!");
         verify(io, atLeastOnce()).readLine();
     }
 
@@ -59,7 +59,7 @@ class UserTest {
 
         user.move();
 
-        verify(io).send(eq("Coordinates should be from 1 to 3!"));
+        verify(io).send("Coordinates should be from 1 to 3!");
         verify(io, atLeastOnce()).readLine();
     }
 
@@ -72,7 +72,7 @@ class UserTest {
 
         user.move();
 
-        verify(io).send(eq("You should enter numbers!"));
+        verify(io).send("You should enter numbers!");
         verify(io, atLeastOnce()).readLine();
     }
 }

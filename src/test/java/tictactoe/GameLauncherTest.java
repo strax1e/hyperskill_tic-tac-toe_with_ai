@@ -10,7 +10,7 @@ import java.io.OutputStream;
 
 import static org.mockito.Mockito.*;
 
-class LauncherTest {
+class GameLauncherTest {
 
     IOHandler ioForLauncher;
 
@@ -21,8 +21,8 @@ class LauncherTest {
         val game = mock(Game.class);
         when(game.start(notNull(), notNull())).thenReturn(GameStatus.DRAW);
 
-        val launcher = new Launcher(ioForLauncher);
-        launcher.start(game);
+        val launcher = new GameLauncher(ioForLauncher, game);
+        launcher.start();
 
         verify(ioForLauncher, atLeastOnce()).readLine();
         verify(ioForLauncher, atLeastOnce()).send(anyString());
@@ -35,8 +35,8 @@ class LauncherTest {
         ioForLauncher = spy(new IOHandler(new ByteArrayInputStream(input.getBytes()), mock(OutputStream.class)));
         val game = mock(Game.class);
 
-        val launcher = new Launcher(ioForLauncher);
-        launcher.start(game);
+        val launcher = new GameLauncher(ioForLauncher, game);
+        launcher.start();
 
         verify(ioForLauncher, times(times)).readLine();
         verify(ioForLauncher, atLeastOnce()).send(anyString());

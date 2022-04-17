@@ -126,10 +126,10 @@ class GameGridTest {
 
         assertEquals(
                 String.format("---------%n" +
-                        "| X     |%n" +
-                        "|       |%n" +
-                        "|   O   |%n" +
-                        "---------"),
+                              "| X     |%n" +
+                              "|       |%n" +
+                              "|   O   |%n" +
+                              "---------"),
                 gameGrid.drawGridIntoString());
     }
 

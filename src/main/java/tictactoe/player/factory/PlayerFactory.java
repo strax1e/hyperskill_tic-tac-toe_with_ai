@@ -1,11 +1,13 @@
 package tictactoe.player.factory;
 
+import org.springframework.stereotype.Component;
 import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;
 import tictactoe.io.IOHandler;
 import tictactoe.player.Player;
 
-public abstract class PlayerFactory {
+@Component
+public interface PlayerFactory {
 
-    public abstract Player make(String playerType, GameGrid grid, GridSymbol symbol, IOHandler io);
+    Player make(String playerType, GameGrid grid, GridSymbol symbol, IOHandler io);
 }

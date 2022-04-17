@@ -7,6 +7,9 @@ import java.util.Random;
 
 class RandomMoveMaker {
 
+    private RandomMoveMaker() {
+    }
+
     private static final Random random = new Random();
 
     public static GridCoordinate moveRandom(GameGrid grid) {

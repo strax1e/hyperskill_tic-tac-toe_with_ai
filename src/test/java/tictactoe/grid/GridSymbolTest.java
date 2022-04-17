@@ -9,37 +9,37 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class GridSymbolTest {
 
     @Test
-    public void getByCharacterCross() {
+    void getByCharacterCross() {
         assertEquals(GridSymbol.CROSS, GridSymbol.getByCharacter('X'));
     }
 
     @Test
-    public void getByCharacterNought() {
+    void getByCharacterNought() {
         assertEquals(GridSymbol.NOUGHT, GridSymbol.getByCharacter('O'));
     }
 
     @Test
-    public void getByCharacterEmpty() {
+    void getByCharacterEmpty() {
         assertEquals(GridSymbol.EMPTY, GridSymbol.getByCharacter('_'));
     }
 
     @Test
-    public void getByCharacterException() {
+    void getByCharacterException() {
         assertThrows(GridException.class, () -> GridSymbol.getByCharacter('r'));
     }
 
     @Test
-    public void testToStringCross() {
+    void testToStringCross() {
         assertEquals("X", GridSymbol.CROSS.toString());
     }
 
     @Test
-    public void testToStringNought() {
+    void testToStringNought() {
         assertEquals("O", GridSymbol.NOUGHT.toString());
     }
 
     @Test
-    public void testToStringEmpty() {
+    void testToStringEmpty() {
         assertEquals(" ", GridSymbol.EMPTY.toString());
     }
 }

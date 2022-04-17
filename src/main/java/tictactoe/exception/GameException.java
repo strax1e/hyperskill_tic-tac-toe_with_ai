@@ -1,11 +1,7 @@
 package tictactoe.exception;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-@Getter
-public class GameException extends RuntimeException {
+import lombok.NoArgsConstructor;
 
-    private final GameExceptionType type;
-}
+@NoArgsConstructor
+public class GameException extends RuntimeException {}

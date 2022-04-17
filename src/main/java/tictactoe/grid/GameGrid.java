@@ -28,7 +28,7 @@ public class GameGrid {
     }
 
     public GridSymbol getSymbolByCoordinate(GridCoordinate coordinate) {
-        return grid[coordinate.getX() + COORDINATE_OFFSET][coordinate.getY() + COORDINATE_OFFSET];
+        return grid[coordinate.x() + COORDINATE_OFFSET][coordinate.y() + COORDINATE_OFFSET];
     }
 
     public boolean isBusy(GridCoordinate coordinate) {
@@ -36,7 +36,7 @@ public class GameGrid {
     }
 
     public void setSymbol(GridSymbol symbol, GridCoordinate coordinate) {
-        grid[coordinate.getX() + COORDINATE_OFFSET][coordinate.getY() + COORDINATE_OFFSET] = symbol;
+        grid[coordinate.x() + COORDINATE_OFFSET][coordinate.y() + COORDINATE_OFFSET] = symbol;
     }
 
     public GameStatus getStatus() {

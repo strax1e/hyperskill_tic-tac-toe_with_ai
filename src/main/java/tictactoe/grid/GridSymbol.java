@@ -3,37 +3,23 @@ package tictactoe.grid;
 import tictactoe.grid.exceptions.GridException;
 
 public enum GridSymbol {
-    CROSS,
-    NOUGHT,
-    EMPTY;
+    CROSS, NOUGHT, EMPTY;
 
     static GridSymbol getByCharacter(char symbol) {
-        switch (symbol) {
-            case 'X':
-                return CROSS;
-
-            case 'O':
-                return NOUGHT;
-
-            case '_':
-                return EMPTY;
-
-            default:
-                throw new GridException(String.format("Unknown symbol '%c'", symbol));
-        }
+        return switch (symbol) {
+            case 'X' -> CROSS;
+            case 'O' -> NOUGHT;
+            case '_' -> EMPTY;
+            default -> throw new GridException(String.format("Unknown symbol '%c'", symbol));
+        };
     }
 
     @Override
     public String toString() {
-        switch (this) {
-            case CROSS:
-                return "X";
-
-            case NOUGHT:
-                return "O";
-
-            default:
-                return " ";
-        }
+        return switch (this) {
+            case CROSS -> "X";
+            case NOUGHT -> "O";
+            default -> " ";
+        };
     }
 }

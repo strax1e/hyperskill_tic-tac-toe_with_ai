@@ -1,12 +1,15 @@
 package tictactoe;
 
-import tictactoe.player.factory.PlayerFactoryStandard;
-import tictactoe.io.IOHandler;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
+
     public static void main(String[] args) {
-        final var io = new IOHandler();
-        final var launcher = new Launcher(io);
-        launcher.start(new Game(io, new PlayerFactoryStandard()));
+        try (var context = SpringApplication.run(Main.class)) {
+            final var launcher = context.getBean(Launcher.class);
+            launcher.start();
+        }
     }
 }

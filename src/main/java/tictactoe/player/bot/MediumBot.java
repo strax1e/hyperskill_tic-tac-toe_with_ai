@@ -8,9 +8,9 @@ import tictactoe.io.OHandler;
 import java.util.Optional;
 import java.util.function.IntFunction;
 
-public class MediumBot extends Bot {
+public final class MediumBot extends Bot {
 
-    private final OHandler o;
+    private final OHandler   o;
     private final GridSymbol enemySymbol;
 
     public MediumBot(GameGrid grid, GridSymbol symbol, OHandler o) {
@@ -44,7 +44,8 @@ public class MediumBot extends Bot {
     }
 
     private Optional<GridCoordinate> getCoordinate(GridSymbol symbolToCheck) {
-        Optional<GridCoordinate> coordinate = checkAllRowsOrColumnsWith(this::coordinateFuncForCheckRows, symbolToCheck);
+        Optional<GridCoordinate> coordinate =
+                checkAllRowsOrColumnsWith(this::coordinateFuncForCheckRows, symbolToCheck);
         if (coordinate.isPresent()) {
             return coordinate;
         }
@@ -91,16 +92,16 @@ public class MediumBot extends Bot {
         }
 
         return (numberOfEmptySymbols == 1 && numberOfSymbolsToCheck == GameGrid.SIZE - 1)
-                ? Optional.of(coordinateToMove)
-                : Optional.empty();
+               ? Optional.of(coordinateToMove)
+               : Optional.empty();
     }
 
     private Optional<GridCoordinate> checkAllDiagonalsBy(GridSymbol symbolToCheck) {
         final var coordinate = checkThreeSymbolsWith(coordinateFuncForCheckDiagonal(), symbolToCheck);
 
         return (coordinate.isPresent())
-                ? coordinate
-                : checkThreeSymbolsWith(coordinateFuncForCheckSubDiagonal(), symbolToCheck);
+               ? coordinate
+               : checkThreeSymbolsWith(coordinateFuncForCheckSubDiagonal(), symbolToCheck);
     }
 
     private IntFunction<GridCoordinate> coordinateFuncForCheckDiagonal() {

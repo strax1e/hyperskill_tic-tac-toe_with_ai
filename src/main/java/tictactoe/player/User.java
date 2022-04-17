@@ -1,7 +1,9 @@
 package tictactoe.player;
 
+import tictactoe.exception.CoordinateIsBusyException;
+import tictactoe.exception.CoordinateIsNotInIntervalException;
 import tictactoe.exception.GameException;
-import tictactoe.exception.GameExceptionType;
+import tictactoe.exception.WordsInsteadOfCoordinatesException;
 import tictactoe.grid.GridCoordinate;
 import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;
@@ -48,12 +50,12 @@ public class User extends Player {
     private void checkValidityOfCoordinate(String coordinate) {
         Pattern pattern = Pattern.compile("\\d+\\s+\\d+");
         if (!pattern.matcher(coordinate).matches()) {
-            throw new GameException(GameExceptionType.WORDS_INSTEAD_COORDINATES_INPUTTED);
+            throw new WordsInsteadOfCoordinatesException();
         }
 
         pattern = Pattern.compile("[1-3]\\s+[1-3]");
         if (!pattern.matcher(coordinate).matches()) {
-            throw new GameException(GameExceptionType.COORDINATE_IS_NOT_IN_INTERVAL);
+            throw new CoordinateIsNotInIntervalException();
         }
     }
 
@@ -67,23 +69,17 @@ public class User extends Player {
 
     private void checkAvailabilityOfCoordinate(GameGrid gameGrid, GridCoordinate coordinate) throws GameException {
         if (gameGrid.isBusy(coordinate)) {
-            throw new GameException(GameExceptionType.COORDINATE_IS_BUSY);
+            throw new CoordinateIsBusyException();
         }
     }
 
     private void handleGameException(GameException e) {
-        switch (e.getType()) {
-            case WORDS_INSTEAD_COORDINATES_INPUTTED:
-                io.send("You should enter numbers!");
-                break;
-
-            case COORDINATE_IS_NOT_IN_INTERVAL:
-                io.send("Coordinates should be from 1 to 3!");
-                break;
-
-            case COORDINATE_IS_BUSY:
-                io.send("This cell is occupied! Choose another one!");
-                break;
+        if (e instanceof WordsInsteadOfCoordinatesException) {
+            io.send("You should enter numbers!");
+        } else if (e instanceof CoordinateIsNotInIntervalException) {
+            io.send("Coordinates should be from 1 to 3!");
+        } else if (e instanceof CoordinateIsBusyException) {
+            io.send("This cell is occupied! Choose another one!");
         }
     }
 }

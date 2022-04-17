@@ -4,7 +4,7 @@ import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import tictactoe.exception.GameException;
-import tictactoe.exception.GameExceptionType;
+import tictactoe.exception.UnknownPlayerTypeException;
 import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;
 import tictactoe.io.IOHandler;
@@ -28,12 +28,7 @@ class PlayerFactoryStandardTest {
             }
         };
 
-        assertThrows(GameException.class, executable);
-        try {
-            executable.execute();
-        } catch (GameException e) {
-            assertEquals(GameExceptionType.UNKNOWN_PLAYER_TYPE, e.getType());
-        }
+        assertThrows(UnknownPlayerTypeException.class, executable);
     }
 
     @Test

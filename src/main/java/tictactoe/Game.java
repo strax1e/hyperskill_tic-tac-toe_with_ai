@@ -1,16 +1,18 @@
 package tictactoe;
 
+import org.springframework.stereotype.Component;
 import tictactoe.grid.GameGrid;
 import tictactoe.grid.GridSymbol;
 import tictactoe.io.IOHandler;
 import tictactoe.player.Player;
 import tictactoe.player.factory.PlayerFactory;
 
+@Component
 public class Game {
 
-    private final IOHandler io;
+    private final IOHandler     io;
     private final PlayerFactory playerFactory;
-    private GameGrid grid;
+    private       GameGrid      grid;
 
     public Game(IOHandler io, PlayerFactory playerFactory) {
         this.io = io;
